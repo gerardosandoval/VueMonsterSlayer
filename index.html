@@ -42,7 +42,7 @@
     <section class="row log">
       <div class="small-12 columns">
         <ul v-for="turn in turnTrace">
-          <li v-if="turn.type === 'attack'" :class="turn.from + '-turn'">
+          <li v-if="turn.type !== 'heal'" :class="turn.from + '-turn'">
             {{turn.from}} hits {{turn.to}} for {{turn.amount}}
           </li>
           <li v-else :class="turn.from + '-turn'">

@@ -30,8 +30,12 @@ new Vue({
     },
     heal: function() {
       var playerHeal = Math.floor((Math.random() * 15) + 1)
-      var playerDemage = Math.floor((Math.random() * 10) + 1)
-      this.playerHealth += playerHeal
+      var playerDemage = this.demage(10, 1)
+      if ((this.playerHealth + playerHeal) >= 100) {
+        this.playerHealth = 100
+      } else {
+        this.playerHealth += playerHeal
+      }
       this.traceAtack("player", "", "heal", playerHeal)
       this.monsterAtack(playerDemage, "attack")
     },
